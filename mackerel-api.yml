@@ -29,6 +29,7 @@ tags:
   - name: serviceMetric
   - name: alert
   - name: graphAnnotation
+  - name: monitor
 paths:
   "/hosts":
     get:
@@ -172,6 +173,16 @@ paths:
           description: 入力にidが付与されて返却されます。
           schema:
             $ref: "#/definitions/GraphAnnotation"
+  "/monitors":
+    get:
+      tags:
+        - monitor
+      operationId: getMonitors
+      responses:
+        "200":
+          description: "成功"
+          schema:
+            $ref: "#/definitions/MonitorsResponse"
 definitions:
   HostsResponse:
     type: object
@@ -211,6 +222,13 @@ definitions:
           $ref: "#/definitions/Alert"
       nextId:
         type: string
+  MonitorsResponse:
+    type: object
+    properties:
+      monitors:
+        type: array
+        items:
+          $ref: "#/definitions/Monitor"
   HostMetricValue:
     type: object
     required:
@@ -365,3 +383,40 @@ definitions:
     properties:
       id:
         type: string
+  # XXX ホストメトリック監視の項目をとりあえず（多態か、Optionalなプロパティを並べるか）
+  Monitor:
+    type: object
+    required:
+      - type
+      - name
+    properties:
+      type:
+        type: string
+      name:
+        type: string
+      memo:
+        type: string
+      duration:
+        type: number
+      metric:
+        type: string
+      operator:
+        type: string
+      warning:
+        type: number
+      critical:
+        type: number
+      maxCheckAttempts:
+        type: number
+      notificationInterval:
+        type: number
+      scopes:
+        type: array
+        items:
+          type: string
+      excludeScopes:
+        type: array
+        items:
+          type: string
+      isMute:
+        type: boolean
