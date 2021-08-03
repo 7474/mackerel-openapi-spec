@@ -1,30 +1,15 @@
-# OpenAPI Specification sandbox
+# Mackerel OpenAPI Spec
 
-This repository is my sandbox of [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification).
+[OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) of [Mackerel API]("https://mackerel.io/ja/api-docs/).
 
-Currently refer to Swagger.
-
-## Mackerel API
-
-- [mackerel-api.json](./mackerel/mackerel-api.json)
-
-### Snipet
+## Snipet
 
 ```sh
 # C# Client
 npm install
 npm run openapi-generator -- generate \
-   -i ./mackerel/mackerel-api.yml \
+   -i ./mackerel-api.yml \
    -g csharp-dotnet2 \
    -o ./mackerel/client \
    --api-package Koudenpa.Mackerel.Api
-```
-
-```sh
-# Node-RED Node
-npm install
-npm run node-red-nodegen -- ./mackerel/mackerel-api.json \
-    -o ./mackerel/node/ \
-    --name mackerel-api-client \
-    --keywords "nodered,mackerel"
 ```
