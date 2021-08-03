@@ -1,6 +1,8 @@
 # Mackerel OpenAPI Spec
 
-[OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) of [Mackerel API]("https://mackerel.io/ja/api-docs/).
+[OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) of [Mackerel API](https://mackerel.io/ja/api-docs/).
+
+View on Swagger UI: https://7474.github.io/mackerel-openapi-spec/
 
 
 ## Edit
