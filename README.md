@@ -2,14 +2,9 @@
 
 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) of [Mackerel API]("https://mackerel.io/ja/api-docs/).
 
-## Snipet
+
+## Edit
 
 ```sh
-# C# Client
-npm install
-npm run openapi-generator -- generate \
-   -i ./mackerel-api.yml \
-   -g csharp-dotnet2 \
-   -o ./mackerel/client \
-   --api-package Koudenpa.Mackerel.Api
+docker run -d -p 80:8080 -v $(pwd):/tmp -e SWAGGER_FILE=/tmp/mackerel-api.yml swaggerapi/swagger-editor
 ```
